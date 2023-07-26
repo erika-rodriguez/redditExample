@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+/.idea/
+/.settings/
+/src/test/resources/
+/src/main/resources/
+/reports/
+
+
