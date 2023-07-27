@@ -5,11 +5,12 @@ import com.solved.carina.reddit.common.LoginPageBase;
 import com.zebrunner.carina.core.IAbstractTest;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest implements IAbstractTest {
     @Test
-    public void loginTest() {
+    public void loginTest() throws InterruptedException {
         //disable popup notifications
 //        ChromeOptions options=new ChromeOptions();
 //        options.addArguments("--disable-notifications");
@@ -17,6 +18,9 @@ public class LoginTest implements IAbstractTest {
         HomePageBase home=initPage(getDriver(), HomePageBase.class);
         home.open();
         LoginPageBase login =home.clickOnLoginBtn();
+        login.switchToIFrame();
         login.submitCredentials();
+
+        Assert.assertTrue(login.areCredentialsIncorrect());
     }
 }

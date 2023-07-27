@@ -9,4 +9,6 @@ public abstract class LoginPageBase extends AbstractPage {
     }
 
     public abstract void submitCredentials();
+    public abstract void switchToIFrame() throws InterruptedException;
+    public abstract boolean areCredentialsIncorrect();
 }
