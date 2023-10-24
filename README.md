@@ -44,9 +44,7 @@ The project focuses on testing the MercadoLibre mobile app using core testing to
 ### Prerequisites
 
 - [ ] Install Java +11
-- [ ] Install Appium Server
-- [ ] Install Appium Inspector
-- [ ] Install AndroidStudio
+- [ ] Download chromedriver and selenium server standalone
 - [ ] Install Jenkins
 
 ### Installation
