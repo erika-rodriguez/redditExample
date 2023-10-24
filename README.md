@@ -34,7 +34,7 @@ The project focuses on testing the Reddit website using core testing tools such 
 
 * Programming Language: Java
 * CI Tools: Jenkins
-* Frameworks: Carina by Zebrunner, Appium
+* Frameworks: Carina by Zebrunner, Selenium Web Driver
 * Test Management Tools: TestRail
 
 <!-- GETTING STARTED -->
