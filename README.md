@@ -50,8 +50,11 @@ The project focuses on testing the MercadoLibre mobile app using core testing to
 - [ ] Install Jenkins
 
 ### Installation
-- [ ] Download chomedriver according to your browser version.
+- [ ] Download chromedriver for your Chrome browser version, save it in Downloads.
+- [ ] Download selenium-server-standalone-3.141.59.jar, save it in Downloads. 
 - [ ] Clone the repo.
+- [ ] Run selenium standalone openning a new terminal in Downloads and run this command: java -jar selenium-server-standalone-3.141.59.jar
+- [ ] Modify the -config.properties file with browsername and version.
 - [ ] Add a _testdata.properties file with TestRail's credentials data (testRailUrl, testRailUsername, testRailPassword).
 
 <!-- USAGE EXAMPLES -->
