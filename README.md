@@ -60,7 +60,7 @@ The project focuses on testing the Reddit website using core testing tools such 
 
 - [ ] Run tests from testng.xml files to create automatically a test run in TestRail.
 
-## Study case: work with iframe
+### Study case: work with iframe
 - An iframe is a separate page. Therefore, if we need to work with the internal structure of an iframe, we need to create a separate class for it inherited from AbstractPage, in which we already paint its internal structure.
 <!-- WORKFLOW -->
 ## Workflow
