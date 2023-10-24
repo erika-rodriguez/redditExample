@@ -1,27 +1,79 @@
-### Getting started
-* Install and configure JDK 11
-* Install and configure [Apache Maven 3.6.0+](http://maven.apache.org/)
-* Download and start the latest [Selenium standalone server](http://www.seleniumhq.org/download/)
-* Download the latest version of [Eclipse](http://www.eclipse.org/downloads/) and install [TestNG plugin](http://testng.org/doc/download.html)
-* [Read Carina documentation](https://zebrunner.github.io/carina/)
+<!-- PROJECT LOGO -->
+<div align="center">
+  <h1 align="center">Reddit Testing Practice</h1>
+  <p align="center">Web Testing Project</p>
+</div>
 
-### Import to Eclipse
-If generation is successfully complete, you would see a new project folder with a name equal to the artifactId attribute specified during generation, so navigate to that folder (where pom.xml is located) and execute the following Maven task:
-```
-mvn clean eclipse:eclipse
-```
-By executing this command, Maven should resolve all dependencies, downloading required libraries to your local repository and generating Eclipse classpath. Before importing new project to Eclipse, you should link your IDE to your Maven repository by executing the following task:
-```
-mvn -Dworkspace=<path_to_workspace> eclipse:configure-workspace
-```
-Here you have to specify the absolute path to the Eclipse workspace. After that, restart Eclipse IDE. Now you can import generated projects such as "Existing Java Project" into Eclipse IDE.
-Generate Eclipse workspace using command:
-```
-mvn clean eclipse:eclipse
-```
+<!-- TABLE OF CONTENTS -->
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#workflow">Workflow</a></li>
+    <li><a href="#useful documentation">Useful Documentation</a></li>
+  </ol>
 
-### Run tests
-```
-mvn clean test -Dsuite=api
-```
-### Implement Frame with Carina
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+The project focuses on testing the MercadoLibre mobile app using core testing tools such as Java, the Carina framework, and Appium. The testing process is integrated with Jenkins and using TestRail to provide a comprehensive testing experience. The goal of the project is to improve testing skills and gain experience in mobile app testing.
+
+### Built With
+
+* Programming Language: Java
+* CI Tools: Jenkins
+* Frameworks: Carina by Zebrunner, Appium
+* Test Management Tools: TestRail
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+
+### Prerequisites
+
+- [ ] Install Java +11
+- [ ] Install Appium Server
+- [ ] Install Appium Inspector
+- [ ] Install AndroidStudio
+- [ ] Install Jenkins
+
+### Installation
+- [ ] Download chomedriver according to your browser version.
+- [ ] Clone the repo.
+- [ ] Add a _testdata.properties file with TestRail's credentials data (testRailUrl, testRailUsername, testRailPassword).
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+- [ ] Run tests from testng.xml files to create automatically a test run in TestRail.
+
+<!-- WORKFLOW -->
+## Workflow
+
+1. Check tickets assigned to you defined in the Project Management Tool (e.g. Trello)
+2. Check TestRail's test case: preconditions, steps, expected results
+3. Create your Feature Branch following naming convention [TCXX]-testName
+4. Add components and pages as needed, using Page Object Model Design Pattern
+5. Commit your changes, push them to your branch and create a pull request assigning a reviewer
+6. Merge changes to master branch
+
+<!-- USEFUL DOCUMENTATION -->
+## Useful Documentation
+
+* [Carina Framework](https://zebrunner.github.io/carina/)
+* [TestRail](https://support.gurock.com/hc/en-us)
+* [Reddit url](https://www.reddit.com/)
+* [TestNG](https://testng.org/doc/documentation-main.html)
+* [Appium](https://appium.io/docs/en/writing-running-appium/caps/)
