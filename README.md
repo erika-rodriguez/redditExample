@@ -75,6 +75,18 @@ driver.switchTo().frame(iframe.getElement());
 ChromeOptions options=new ChromeOptions();
 options.addArguments("--disable-notifications");
 ```
+
+### Study case: shadow DOM elements
+- Elements within a shadow DOM are encapsulated and not directly accessible using standard CSS or XPath selectors. Shadow DOM is often used for encapsulation and styling of web components.
+- When we try to find the Shadow DOM elements using Selenium locators, we get NoSuchElementException as it is not directly accessible to the DOM.
+- To locate elements within a shadow DOM, we have two options:
+1. Using JavaScriptExecutor. 
+2. Using Selenium WebDriver’s getShadowDom() method.
+```
+CSS example:
+your-component::shadow .bg-ui-modalbackground
+```
+
 <!-- WORKFLOW -->
 ## Workflow
 
