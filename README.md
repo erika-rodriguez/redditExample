@@ -65,8 +65,16 @@ The project focuses on testing the Reddit website using core testing tools such 
 ### Study case: work with iframe
 - An iframe is a separate page. Therefore, if we need to work with the internal structure of an iframe, we need to create a separate class for it inherited from AbstractPage, in which we already paint its internal structure.
 - When we click in login button, an iframe is opened. To work with the ui elements inside the iframe, we need to implement the carina solution for it.
-- In LoginPage class, we create the locator for the iframe component, and we create a method to switch to the iframe and be able to work with the elements from it. -> driver.switchTo().frame(iframe.getElement());
-
+- In LoginPage class, we create the locator for the iframe component, and we create a method to switch to the iframe and be able to work with the elements from it.
+```
+driver.switchTo().frame(iframe.getElement());
+```
+### Study case: disable popup notifications
+- To disable popup notifications on the LoginTest class, we can use the ChromeOptions to disable them or set it up in the -config.properties file
+```
+ChromeOptions options=new ChromeOptions();
+options.addArguments("--disable-notifications");
+```
 <!-- WORKFLOW -->
 ## Workflow
 
