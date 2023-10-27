@@ -85,13 +85,14 @@ options.addArguments("--disable-notifications");
    We can verify this hierarchy by inspecting the website, go to console and execute the commands and verify the result, if we find a shadow root tag, we use the method shadowRoot() and continue navigating through the DOM. Example: document.querySelector('').shadowRoot.querySelector('').shadowRoot.querySelector('').
 
    Finally, we can save the result in a WebElement variable and use it in our tests.
-```
-JavascriptExecutor jse=(JavascriptExecutor) driver;
-WebElement shadowedElement=(WebElement) jse.executeScript("return document.querySelector('shreddit-overlay-display[class=\"theme-beta\"]').shadowRoot.querySelector('shreddit-signup-drawer').shadowRoot.querySelector('shreddit-slotter[slot-name=\"login\"]').shadowRoot.querySelector('#login-username').shadowRoot.querySelector('faceplate-form-helper-text[placeholder=\" \"]').shadowRoot.querySelector('#helper-text')");
-```
+   ```
+   JavascriptExecutor jse=(JavascriptExecutor) driver;
+   WebElement shadowedElement=(WebElement) jse.executeScript("return document.querySelector('shreddit-overlay-display[class=\"theme-beta\"]').shadowRoot.querySelector('shreddit-signup-drawer').shadowRoot.querySelector('shreddit-slotter[slot-name=\"login\"]').shadowRoot.querySelector('#login-username').shadowRoot.querySelector('faceplate-form-helper-text[placeholder=\" \"]').shadowRoot.querySelector('#helper-text')");
+   ```
 2. Using Selenium WebDriver’s getShadowDom() method.
 
 
+   [Automate Shadow DOM In Selenium WebDriver](https://www.lambdatest.com/blog/shadow-dom-in-selenium/)
 <!-- WORKFLOW -->
 ## Workflow
 
