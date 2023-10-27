@@ -80,9 +80,9 @@ options.addArguments("--disable-notifications");
 - Elements within a shadow DOM are encapsulated and not directly accessible using standard CSS or XPath selectors. Shadow DOM is often used for encapsulation and styling of web components.
 - When we try to find the Shadow DOM elements using Selenium locators, we get NoSuchElementException as it is not directly accessible to the DOM.
 - To locate elements within a shadow DOM, we have two options:
-1. Using JavaScriptExecutor: create an instance of JavascriptExecutor to implement the method executeScript() using as argument the nested hierarchy of tags until we get the element. 
- We can verify this hierarchy by inspecting the website, go to console and execute the commands and verify the result, if we find a shadow root tag, we use the method shadowRoot() and continue navigating through the DOM. Example: document.querySelector('').shadowRoot.querySelector('').shadowRoot.querySelector('').
- Finally we can save the result in a WebElement variable and use it in our tests.
+1. Using JavaScriptExecutor: create an instance of JavascriptExecutor to implement the method executeScript() using as argument the nested hierarchy of tags until we get the element.  
+We can verify this hierarchy by inspecting the website, go to console and execute the commands and verify the result, if we find a shadow root tag, we use the method shadowRoot() and continue navigating through the DOM. Example: document.querySelector('').shadowRoot.querySelector('').shadowRoot.querySelector('').  
+Finally we can save the result in a WebElement variable and use it in our tests.
 ```
 JavascriptExecutor jse=(JavascriptExecutor) driver;
 WebElement shadowedElement=(WebElement) jse.executeScript("return document.querySelector('shreddit-overlay-display[class=\"theme-beta\"]').shadowRoot.querySelector('shreddit-signup-drawer').shadowRoot.querySelector('shreddit-slotter[slot-name=\"login\"]').shadowRoot.querySelector('#login-username').shadowRoot.querySelector('faceplate-form-helper-text[placeholder=\" \"]').shadowRoot.querySelector('#helper-text')");
