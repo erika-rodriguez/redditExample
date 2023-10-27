@@ -64,8 +64,8 @@ The project focuses on testing the Reddit website using core testing tools such 
 
 ### Study case: work with iframe
 - An iframe is a separate page. Therefore, if we need to work with the internal structure of an iframe, we need to create a separate class for it inherited from AbstractPage, in which we already paint its internal structure.
-- When we click in login button, an iframe is opened. To work with the ui elements inside the iframe, we need to implement the carina solution for it.
-- In LoginPage class, we create the locator for the iframe component, and we create a method to switch to the iframe and be able to work with the elements from it.
+- When we click in login button, an iframe is opened, you can check this by inspecting the website and reading the DOM. To work with the ui elements inside the iframe, we need to implement the carina solution for it.
+- In LoginPage class, we create the locator for the iframe component, searching in DOM the <iframe> tag, and we create a method to switch to the iframe and be able to work with the elements from it.
 ```
 driver.switchTo().frame(iframe.getElement());
 ```
@@ -80,12 +80,15 @@ options.addArguments("--disable-notifications");
 - Elements within a shadow DOM are encapsulated and not directly accessible using standard CSS or XPath selectors. Shadow DOM is often used for encapsulation and styling of web components.
 - When we try to find the Shadow DOM elements using Selenium locators, we get NoSuchElementException as it is not directly accessible to the DOM.
 - To locate elements within a shadow DOM, we have two options:
-1. Using JavaScriptExecutor. 
+1. Using JavaScriptExecutor: create an instance of JavascriptExecutor to implement the method executeScript() using as argument the nested hierarchy of tags until we get the element.
+We can verify this hierarchy by inspecting the website, go to console and execute the commands and verify the result, if we find a shadow root tag, we use the method shadowRoot() and continue navigating through the DOM. Example: document.querySelector('').shadowRoot.querySelector('').shadowRoot.querySelector('').
+Finally we can save the result in a WebElement variable and use it in our tests.
+```
+JavascriptExecutor jse=(JavascriptExecutor) driver;
+WebElement shadowedElement=(WebElement) jse.executeScript("return document.querySelector('shreddit-overlay-display[class=\"theme-beta\"]').shadowRoot.querySelector('shreddit-signup-drawer').shadowRoot.querySelector('shreddit-slotter[slot-name=\"login\"]').shadowRoot.querySelector('#login-username').shadowRoot.querySelector('faceplate-form-helper-text[placeholder=\" \"]').shadowRoot.querySelector('#helper-text')");
+```
 2. Using Selenium WebDriver’s getShadowDom() method.
-```
-CSS example:
-your-component::shadow .bg-ui-modalbackground
-```
+
 
 <!-- WORKFLOW -->
 ## Workflow
