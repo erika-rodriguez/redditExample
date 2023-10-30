@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest implements IAbstractTest {
     @Test
-    public void loginTest(){
+    public void loginTest() {
         //disable popup notifications
 //        ChromeOptions options=new ChromeOptions();
 //        options.addArguments("--disable-notifications");
