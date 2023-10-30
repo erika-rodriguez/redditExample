@@ -89,8 +89,13 @@ options.addArguments("--disable-notifications");
    JavascriptExecutor jse=(JavascriptExecutor) driver;
    WebElement shadowedElement=(WebElement) jse.executeScript("return document.querySelector('shreddit-overlay-display[class=\"theme-beta\"]').shadowRoot.querySelector('shreddit-signup-drawer').shadowRoot.querySelector('shreddit-slotter[slot-name=\"login\"]').shadowRoot.querySelector('#login-username').shadowRoot.querySelector('faceplate-form-helper-text[placeholder=\" \"]').shadowRoot.querySelector('#helper-text')");
    ```
-2. Using Selenium WebDriver’s getShadowDom() method.
+2. Using Selenium WebDriver’s getShadowDom() method: create an instance of SearchContext to get the elements under shadow root using the getShadowRoot() method.
 
+   Save the shadowed element in a WebElement variable to use it in tests.
+   ```
+   SearchContext shadow=driver.findElement(By.cssSelector("shreddit-overlay-display[class='theme-beta']").getShadowRoot();
+   WebElement shadowedElement=shadow.findElement(By.cssSelector(""));
+   ```
 
    [Automate Shadow DOM In Selenium WebDriver](https://www.lambdatest.com/blog/shadow-dom-in-selenium/)
 <!-- WORKFLOW -->
