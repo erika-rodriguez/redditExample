@@ -11,6 +11,8 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//a[contains(@href,'login')]")
     //"//div[@id='email-verification-tooltip-id']/..//a"
     private ExtendedWebElement loginBtn;
+    @FindBy(xpath = "//shreddit-feed[@class='nd:visible']/descendant::shreddit-post[1]/div[contains(@id,'post-title')]")
+    private ExtendedWebElement firstPostTitle;
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -19,5 +21,9 @@ public class HomePage extends HomePageBase {
     public LoginPageBase clickOnLoginBtn() {
         loginBtn.click();
         return initPage(getDriver(),LoginPageBase.class);
+    }
+    @Override
+    public String getPostTitle() {
+        return firstPostTitle.getText();
     }
 }

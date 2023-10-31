@@ -2,9 +2,8 @@ package com.solved.carina.reddit;
 
 import com.solved.carina.reddit.common.HomePageBase;
 import com.zebrunner.carina.core.IAbstractTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import javax.ws.rs.PUT;
 
 
 public class HomeTest implements IAbstractTest {
@@ -12,7 +11,8 @@ public class HomeTest implements IAbstractTest {
     public void getFirstPostText(){
         HomePageBase home=initPage(getDriver(), HomePageBase.class);
         home.open();
-        home.getPostTitle();
+        String title=home.getPostTitle();
+        Assert.assertFalse(title.isBlank());
     }
 
 }
