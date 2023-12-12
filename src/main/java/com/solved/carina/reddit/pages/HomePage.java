@@ -11,7 +11,7 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//a[contains(@href,'login')]")
     //"//div[@id='email-verification-tooltip-id']/..//a"
     private ExtendedWebElement loginBtn;
-    @FindBy(xpath = "//shreddit-feed[@class='nd:visible']/descendant::shreddit-post[1]/div[contains(@id,'post-title')]")
+    @FindBy(xpath = "(//shreddit-post/a[contains(@id,'post-title')])[1]")
     private ExtendedWebElement firstPostTitle;
     public HomePage(WebDriver driver) {
         super(driver);
