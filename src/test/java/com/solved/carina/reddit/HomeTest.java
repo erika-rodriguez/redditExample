@@ -15,4 +15,11 @@ public class HomeTest implements IAbstractTest {
         Assert.assertFalse(title.isBlank());
     }
 
+    @Test
+    public void getAppBtn(){
+        HomePageBase home=initPage(getDriver(), HomePageBase.class);
+        home.open();
+        Assert.assertFalse(home.clickOnGetAppBtn().isBlank(), "Message is not shown");
+    }
+
 }

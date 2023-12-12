@@ -11,4 +11,5 @@ public abstract class HomePageBase extends AbstractPage {
     public abstract LoginPageBase clickOnLoginBtn();
 
     public abstract String getPostTitle();
+    public abstract String clickOnGetAppBtn();
 }
