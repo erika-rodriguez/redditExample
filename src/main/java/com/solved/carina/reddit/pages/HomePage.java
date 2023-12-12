@@ -17,6 +17,11 @@ public class HomePage extends HomePageBase {
     private ExtendedWebElement loginBtn;
     @FindBy(xpath = "(//shreddit-post/a[contains(@id,'post-title')])[1]")
     private ExtendedWebElement firstPostTitle;
+    @FindBy(xpath = "//faceplate-tracker/button")
+    private ExtendedWebElement getAppBtn;
+    @FindBy(xpath = "//section/h3")
+    private ExtendedWebElement getAppTxt;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -30,5 +35,12 @@ public class HomePage extends HomePageBase {
     public String getPostTitle() {
         LOGGER.info(firstPostTitle.getText());
         return firstPostTitle.getText();
+    }
+
+    @Override
+    public String clickOnGetAppBtn() {
+        getAppBtn.click();
+        LOGGER. info(getAppTxt.getText());
+        return getAppTxt.getText();
     }
 }
