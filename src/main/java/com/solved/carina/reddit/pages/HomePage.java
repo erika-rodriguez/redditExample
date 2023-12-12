@@ -24,6 +24,7 @@ public class HomePage extends HomePageBase {
     }
     @Override
     public String getPostTitle() {
+        System.out.println(firstPostTitle.getText());
         return firstPostTitle.getText();
     }
 }
