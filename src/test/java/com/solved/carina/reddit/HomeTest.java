@@ -22,4 +22,12 @@ public class HomeTest implements IAbstractTest {
         Assert.assertFalse(home.clickOnGetAppBtn().isBlank(), "Message is not shown");
     }
 
+    @Test
+    public void searchBar(){
+        HomePageBase home=initPage(getDriver(), HomePageBase.class);
+        home.open();
+        home.clickOnSearchBar();
+
+    }
+
 }
