@@ -4,7 +4,9 @@ import com.solved.carina.reddit.common.HomePageBase;
 import com.solved.carina.reddit.common.LoginPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.logging.Logger;
@@ -21,6 +23,9 @@ public class HomePage extends HomePageBase {
     private ExtendedWebElement getAppBtn;
     @FindBy(xpath = "//section/h3")
     private ExtendedWebElement getAppTxt;
+    //searchBar is inside 2 nested shadow DOM.
+
+
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -42,5 +47,13 @@ public class HomePage extends HomePageBase {
         getAppBtn.click();
         LOGGER. info(getAppTxt.getText());
         return getAppTxt.getText();
+    }
+
+    @Override
+    public void clickOnSearchBar() {
+        JavascriptExecutor jse=(JavascriptExecutor) driver;
+        WebElement searchBar=(WebElement) jse.executeScript("return document.querySelector('reddit-search-large').shadowRoot.querySelector('#search-input').shadowRoot.querySelector('input[placeholder=\"Search Reddit\"]')");
+        searchBar.click();
+        searchBar.sendKeys("Hello");
     }
 }
