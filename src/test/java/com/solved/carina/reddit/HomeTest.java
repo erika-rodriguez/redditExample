@@ -27,6 +27,7 @@ public class HomeTest implements IAbstractTest {
         HomePageBase home=initPage(getDriver(), HomePageBase.class);
         home.open();
         home.clickOnSearchBar();
+        //Assert.assertTrue(home.clickOnSearchBar());
 
     }
 

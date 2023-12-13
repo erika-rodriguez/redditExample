@@ -5,6 +5,7 @@ import com.solved.carina.reddit.common.LoginPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,6 +55,7 @@ public class HomePage extends HomePageBase {
         JavascriptExecutor jse=(JavascriptExecutor) driver;
         WebElement searchBar=(WebElement) jse.executeScript("return document.querySelector('reddit-search-large').shadowRoot.querySelector('#search-input').shadowRoot.querySelector('input[placeholder=\"Search Reddit\"]')");
         searchBar.click();
-        searchBar.sendKeys("Hello");
+        searchBar.sendKeys("Argentina");
+        searchBar.sendKeys(Keys.ENTER);
     }
 }
