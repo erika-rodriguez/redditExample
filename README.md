@@ -98,6 +98,14 @@ options.addArguments("--disable-notifications");
    ```
 
    [Automate Shadow DOM In Selenium WebDriver](https://www.lambdatest.com/blog/shadow-dom-in-selenium/)
+
+
+### Study case: type ENTER or other KEYS with Selenium
+```
+import org.openqa.selenium.Keys
+
+[webElement].sendKeys(Keys.ENTER);
+```
 <!-- WORKFLOW -->
 ## Workflow
 
