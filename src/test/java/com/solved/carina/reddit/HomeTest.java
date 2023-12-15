@@ -1,12 +1,17 @@
 package com.solved.carina.reddit;
 
 import com.solved.carina.reddit.common.HomePageBase;
+import com.solved.carina.reddit.common.SearchResultsPageBase;
 import com.zebrunner.carina.core.IAbstractTest;
+import com.zebrunner.carina.dataprovider.IAbstractDataProvider;
+import com.zebrunner.carina.dataprovider.annotations.CsvDataSourceParameters;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
 
-public class HomeTest implements IAbstractTest {
+
+public class HomeTest implements IAbstractTest, IAbstractDataProvider {
     @Test
     public void getFirstPostText(){
         HomePageBase home=initPage(getDriver(), HomePageBase.class);
@@ -22,13 +27,14 @@ public class HomeTest implements IAbstractTest {
         Assert.assertFalse(home.clickOnGetAppBtn().isBlank(), "Message is not shown");
     }
 
-    @Test
-    public void searchBar(){
+    @Test(dataProvider="DataProvider")
+    @CsvDataSourceParameters(path = "searchBar.csv", dsUid = "TUID")
+    public void searchBar(HashMap<String, String> data){
         HomePageBase home=initPage(getDriver(), HomePageBase.class);
         home.open();
         home.clickOnSearchBar();
-        //Assert.assertTrue(home.clickOnSearchBar());
+        SearchResultsPageBase results =home.searchFromCSV(data.get("Search"));
 
+        Assert.assertTrue(results.isSearchResultPresent());
     }
-
 }
