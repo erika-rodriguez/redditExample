@@ -2,9 +2,11 @@ package com.solved.carina.reddit.pages;
 
 import com.solved.carina.reddit.common.HomePageBase;
 import com.solved.carina.reddit.common.LoginPageBase;
+import com.solved.carina.reddit.common.SearchResultsPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +26,7 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//section/h3")
     private ExtendedWebElement getAppTxt;
     //searchBar is inside 2 nested shadow DOM.
+
 
 
 
@@ -54,6 +57,14 @@ public class HomePage extends HomePageBase {
         JavascriptExecutor jse=(JavascriptExecutor) driver;
         WebElement searchBar=(WebElement) jse.executeScript("return document.querySelector('reddit-search-large').shadowRoot.querySelector('#search-input').shadowRoot.querySelector('input[placeholder=\"Search Reddit\"]')");
         searchBar.click();
-        searchBar.sendKeys("Hello");
+    }
+
+    @Override
+    public SearchResultsPageBase searchFromCSV(String searchForThis) {
+        JavascriptExecutor jse=(JavascriptExecutor) driver;
+        WebElement searchBar=(WebElement) jse.executeScript("return document.querySelector('reddit-search-large').shadowRoot.querySelector('#search-input').shadowRoot.querySelector('input[placeholder=\"Search Reddit\"]')");
+        searchBar.sendKeys(searchForThis);
+        searchBar.sendKeys(Keys.ENTER);
+        return initPage(getDriver(),SearchResultsPageBase.class);
     }
 }
